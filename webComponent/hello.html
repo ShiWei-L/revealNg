@@ -1,0 +1,27 @@
+<template id="custom-template">
+    <style>
+       h1 {color: darkgray }
+    </style>
+
+    <h1>This is Web Component</h1>
+</template>
+
+<script>
+    var indexDoc = document;
+    var customdoc = (indexDoc._currentScript || indexDoc.currentScript).ownerDocument;
+    var tmpl = customdoc.querySelector("#custom-template");
+
+    var customProto = Object.create(HTMLElement.prototype);
+
+    customProto.createdCallback = function(){
+        var root = this.createShadowRoot();
+        root.appendChild(indexDoc.importNode(tmpl.content,true));
+    }
+
+ var custom=  indexDoc.registerElement("custom-component",{
+    prototype : customProto
+   })
+    // var custom = customElements.define("custom-conponent",{
+    //     prototype : customProto
+    // });
+</script>
