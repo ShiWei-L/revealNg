@@ -1,7 +1,6 @@
 <h1>This is Page2 Component</h1>
-<button (click)="onClick()" nzType="default">click event</button>
+<button nz-button ngType="Default" (click)="onClick()" nzType="default">click event</button>
 <div>
-    <input type="text" value="{{per.name}}"/>
-    <p>{{per.name}}</p>
-    <p>{{per.age}}</p>
+    <nz-input [nzPlaceHolder]="'please enter the name'" [(ngModel)]="per.name"></nz-input>
+    
 </div>
