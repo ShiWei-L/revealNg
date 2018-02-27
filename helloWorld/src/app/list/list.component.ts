@@ -23,6 +23,10 @@ export class ListComponent implements OnInit {
     new Person('东方不败', '//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png', 27, '日出东方,唯我不败'),
     new Person('林平之', '//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png', 22, '我的辟邪剑谱'),
     new Person('田不易', '//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png', 57, '剑在手,跟我走'));
+
+    setTimeout(() => {
+      pers[0] = new Person('走一个', '//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png', 80, '吼啊');
+    }, 5000);
     return pers;
   }
 
