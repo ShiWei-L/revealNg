@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ListItemComponent } from '../list-item/list-item.component';
 
 @Component({
   selector: 'app-list',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-
+  @ViewChild(ListItemComponent) listitem: ListItemComponent;
   pers: Array<Person>;
   constructor() {
     this.pers = this.getPersons();
@@ -29,7 +30,12 @@ export class ListComponent implements OnInit {
     }, 5000);
     return pers;
   }
-
+  handleClick($event) {
+    alert(`${$event} : 叫某人有何事`);
+  }
+  clickChildFunction() {
+    this.listitem.handlefromParentClick();
+  }
 }
 
 

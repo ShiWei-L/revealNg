@@ -8,7 +8,7 @@ enableProdMode();
 })
 export class ListItemComponent implements OnInit , OnChanges {
    _person: Person;
- // @Output() routerNavigate: EventEmitter<number>;
+  @Output() OnPersonClick = new EventEmitter<string>();
 
   @Input()
   set person(person: Person) {
@@ -32,6 +32,12 @@ export class ListItemComponent implements OnInit , OnChanges {
           to = JSON.stringify(changedProp.currentValue);
       console.log(`${propName} changed from ${from} to ${to}`);
     }
+  }
+  personClick(message: string) {
+    this.OnPersonClick.emit(message);
+  }
+  handlefromParentClick() {
+    alert(`${this._person.name} : 尊驾有何事`);
   }
 
 }

@@ -1,6 +1,6 @@
 <nz-card style="width:250px;">
     <ng-template #title>
-        <nz-avatar nzIcon="user" nzSrc="{{person.avatat}}"></nz-avatar>
+        <nz-avatar nzIcon="user" nzSrc="{{person.avatat}}"  (click)="$event.stopPropagation();personClick(person.name)"></nz-avatar>
         <span style="margin-left:20%">{{person.name}}</span> 
     </ng-template>
     <ng-template #body>
